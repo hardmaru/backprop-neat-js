@@ -1,0 +1,254 @@
+@font-face {
+  font-family: "waku";
+  src: url("../font/mini-wakuwaku.otf") format("opentype");
+}
+
+@font-face {
+  font-family:"pencil";
+  src: url("../font/pencil.ttf"); /* TTF file for CSS3 browsers */
+}
+
+@font-face {
+  font-family:"quote";
+  src: url("../font/quote.ttf"); /* TTF file for CSS3 browsers */
+}
+
+html, body {
+    overflow-x: hidden;
+    font-family: "pencil", "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 200;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "waku", "pencil", "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 200;
+  color: black;
+}
+
+h1 {
+  color: orange;
+}
+
+a {
+  color: #1E90FF;
+  opacity: 0.75;
+}
+
+#imageDescriptionLink {
+  color: #000;
+  text-decoration: none;
+}
+
+pencil {
+  font-family: "pencil", "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 0.8em;
+}
+
+quote {
+  font-family: "quote", "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1.0em;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+footer{
+    height: 0%;
+    width:100%;
+    bottom: 8em;
+    position: absolute;
+    text-align: right;
+    right: 1.5em;
+}
+
+.leftimage {
+  /* The background image must be 640px wide */
+  max-width: 640;
+}
+
+figure.fluidratio {
+  padding-top: 140%;  /* slope */
+  height: 100%;  /* start height */
+
+  background-image: url(../img/ninja.png);
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+/***********************
+  OUTLINE BUTTONS
+************************/
+
+.btn.outline {
+    background: rgba(255, 255, 255, 0.0);
+    padding: 8px 8px;
+}
+.btn-primary.outline {
+    border: 2px solid #1E90FF;
+    color: #1E90FF;
+    opacity: 0.75;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: #1E90FF;
+    color: #1E90FF;
+    opacity: 0.9;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    background: #1E90FF;
+    border-color: #1E90FF;
+    color: #fff;
+    opacity: 0..9;
+}
+/*
+.btn-outline {
+    margin-top: 15px;
+    border: solid 2px #fff;
+    font-size: 1em;
+    color: #fff;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+}
+
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active {
+    border: solid 2px #fff;
+    color: #18bc9c;
+    background: #fff;
+}
+*/
+
+/***********************
+  CUSTON BTN VALUES
+************************/
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
+
+.caption {
+    position: absolute;
+    top: 0em;
+    width: 100%;
+    height: 50%;
+}
+
+.caption .caption-content {
+    position: absolute;
+    top: 0em;
+    width: 100%;
+    height: 50%;
+    margin-top: 0px;
+    padding-top: 1.25em;
+    text-align: center;
+    font-size: 2.0em;
+    font-weight: 200;
+    opacity:0;
+    color: #000;
+}
+
+.caption:hover .caption-content {
+    position: absolute;
+    top: 0em;
+    width: 100%;
+    height: 4.0em;
+    margin-top: 0px;
+    padding-top: 1.25em;
+    text-align: center;
+    font-size: 2.0em;
+    font-weight: 200;
+    opacity:1;
+    color: #000;
+
+    background: rgba(255,255,255,.5); //rgba(50,150,220,.0);
+    -webkit-transition: all ease .01s;
+    -moz-transition: all ease .01s;
+    transition: all ease .01s;
+
+}
+
+.floating-label-form-group {
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: .5em;
+    border-bottom: 1px solid #eee;
+}
+
+.floating-label-form-group input,
+.floating-label-form-group textarea {
+    z-index: 1;
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+    border: 0;
+    border-radius: 0;
+    font-size: 1.5em;
+    background: 0 0;
+    box-shadow: none!important;
+    resize: none;
+}
+
+.floating-label-form-group label {
+    display: block;
+    z-index: 0;
+    position: relative;
+    top: 2em;
+    margin: 0;
+    font-size: .85em;
+    line-height: 1.764705882em;
+    vertical-align: middle;
+    vertical-align: baseline;
+    opacity: 0;
+    -webkit-transition: top .3s ease,opacity .3s ease;
+    -moz-transition: top .3s ease,opacity .3s ease;
+    -ms-transition: top .3s ease,opacity .3s ease;
+    transition: top .3s ease,opacity .3s ease;
+}
+
+.floating-label-form-group::not(:first-child) {
+    padding-left: 14px;
+    border-left: 1px solid #eee;
+}
+
+.floating-label-form-group-with-value label {
+    top: 0;
+    opacity: 1;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 200;
+}
+
+.floating-label-form-group-with-focus label {
+    color: #f4b40d;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 200;
+}
+
+form .row:first-child .floating-label-form-group {
+    border-top: 1px solid #eee;
+}
+
