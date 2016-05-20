@@ -2,13 +2,13 @@
 
 ![NEAT](https://cdn.rawgit.com/hardmaru/backprop-neat-js/master/img/example.png)
 
-Demo combining the [NEAT](http://nn.cs.utexas.edu/?stanley:gecco02b) genetic algorithm to evolve atypical neural networks, and the backpropagation algorithm to solve for the weights of the evolved networks for simple classification problem, inspired by [tensorflow playground](https://github.com/tensorflow/playground).
+[Web Demo](http://otoro.net/ml/neat-playground/) combining the [NEAT](http://nn.cs.utexas.edu/?stanley:gecco02b) genetic algorithm to evolve atypical neural networks, and the backpropagation algorithm to solve for the weights of the evolved networks for simple classification problem, inspired by [tensorflow playground](https://github.com/tensorflow/playground).
 
 Our NEAT implementation evolves arbitrary computational graphs that can be processed by karpathy's [recurrent.js](https://github.com/karpathy/recurrentjs) for both forward and backward pass.  [WebCola](http://marvl.infotech.monash.edu/webcola/) and [p5.js](http://www.p5js.org/) used for visualisation.
 
-At this stage, it is more proof of concept, because classification problems can already be easily solved by throwing deeper and bigger networks and GPU's at the problem rather than carefully crafting small neural networks using NEAT.  That doesn't stop me from playing around with these non-mainstream concepts though, as this stuff is what I want to work on at this time.
+At this stage, it is more proof of concept, because classification problems can already be easily solved by throwing deeper and bigger networks and GPU's at the problem rather than carefully crafting small neural networks using NEAT.  That doesn't stop me from playing around with these non-mainstream concepts though, as this stuff is what I want to work on.
 
-Please read [blog post](http://blog.otoro.net/2016/05/07/backprop-neat/) for more details.
+Please read my [blog post](http://blog.otoro.net/2016/05/07/backprop-neat/) for more details, or try the [Web Demo](http://otoro.net/ml/neat-playground/).
 
 ## Node.js example code
 
@@ -48,9 +48,9 @@ var backprop = function(trainer, num_cycle) {
 We can now define our NEAT environment, and a trainer object to store our population of genomes.
 
 ```javascript
-N.init({nInput: 2, nOutput: 1, 	// 2 inputs (x, y) coordinate, one output (class)
-  initConfig: "all",						// initially, each input is connected to each output when "all" is used
-  activations : "default", 			// [SIGMOID, TANH, RELU, GAUSSIAN, SIN, ABS, MULT, SQUARE, ADD] for "default"
+N.init({nInput: 2, nOutput: 1, // 2 inputs (x, y) coordinate, one output (class)
+  initConfig: "all", // initially, each input is connected to each output when "all" is used
+  activations : "default", // [SIGMOID, TANH, RELU, GAUSSIAN, SIN, ABS, MULT, SQUARE, ADD] for "default"
 });
 
 var trainer = new N.NEATTrainer({
@@ -62,14 +62,14 @@ var trainer = new N.NEATTrainer({
   mutation_rate : 0.9,
   mutation_size : 0.005,
   extinction_rate : 0.5,
-});
+}); // a new randomly initialised population will be created
 ```
 
 The following line applies our fitness function to all 100 genomes in the trainer class, ranks them, and clusters them into the 5 sub populations.  If the fitness function performs backprop, then all 100 genomes will be backpropped'.
 
 ```javascript
 trainer.applyFitnessFunc(fitnessFunc); // by default, fitnessFunc doesn't perform backprop
-var genome = trainer.getBestGenome();  // this line will extract the most capable genome from the populations
+var genome = trainer.getBestGenome(); // this line will extract the most capable genome from the populations
 ```
 
 We can now try to evolve the population of networks, ie, add new nodes and connections, for 10 generations, and for each generation, we perform backpropagation of 600 cycles, using a minibatch of 10 samples.  The results and progress is slowly dumped to the console using the helper function.
@@ -88,6 +88,7 @@ The final genome can be saved as a JSON string to be used in the future.
 
 ```javascript
 var data_string = genome.toJSON() // dump the genome to json format
+console.log(data_string);
 
 // another project in another file:
 var genome = new N.Genome();
