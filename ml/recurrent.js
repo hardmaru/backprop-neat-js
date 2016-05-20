@@ -3,6 +3,9 @@
 // heavily modified recurrent.js library for use in genetic art
 // with DCT compression, CoSyNe neuroevolution
 // sin, cos, gaussian, abs activations
+
+// based off https://github.com/karpathy/recurrentjs, excellent library by karpathy
+
 var R = {};
 
 (function(global) {
